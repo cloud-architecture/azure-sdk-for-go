@@ -123,18 +123,6 @@ type Container struct {
 	*ContainerProperties `json:"properties,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for Container.
-func (c Container) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if c.Name != nil {
-		objectMap["name"] = c.Name
-	}
-	if c.ContainerProperties != nil {
-		objectMap["properties"] = c.ContainerProperties
-	}
-	return json.Marshal(objectMap)
-}
-
 // UnmarshalJSON is the custom unmarshaler for Container struct.
 func (c *Container) UnmarshalJSON(body []byte) error {
 	var m map[string]*json.RawMessage
@@ -178,10 +166,10 @@ type ContainerExecRequest struct {
 
 // ContainerExecRequestTerminalSize the size of the terminal.
 type ContainerExecRequestTerminalSize struct {
-	// Row - The row size of the terminal
-	Row *int32 `json:"row,omitempty"`
-	// Column - The column size of the terminal
-	Column *int32 `json:"column,omitempty"`
+	// Rows - The row size of the terminal
+	Rows *int32 `json:"rows,omitempty"`
+	// Cols - The column size of the terminal
+	Cols *int32 `json:"cols,omitempty"`
 }
 
 // ContainerExecResponse the information for the container exec command.

@@ -122,18 +122,6 @@ type Container struct {
 	*ContainerProperties `json:"properties,omitempty"`
 }
 
-// MarshalJSON is the custom marshaler for Container.
-func (c Container) MarshalJSON() ([]byte, error) {
-	objectMap := make(map[string]interface{})
-	if c.Name != nil {
-		objectMap["name"] = c.Name
-	}
-	if c.ContainerProperties != nil {
-		objectMap["properties"] = c.ContainerProperties
-	}
-	return json.Marshal(objectMap)
-}
-
 // UnmarshalJSON is the custom unmarshaler for Container struct.
 func (c *Container) UnmarshalJSON(body []byte) error {
 	var m map[string]*json.RawMessage
